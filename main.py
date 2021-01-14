@@ -10,8 +10,8 @@ class VideoCapture:
 		# create new video capture
 		self.cap = cv2.VideoCapture(name)
 		
-		# modify resolution to 640x480p
-		self.cap.set(CV_CAP_PROP_FRAME_WIDTH, 480)
+		# modify frame width 480p
+		self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 480)
 
 		# worker thread's queue
 		self.q = queue.Queue()
