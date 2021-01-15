@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import time
 
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 480)
@@ -33,12 +34,17 @@ while True:
                 totalNumWhite = img[row:row+120,col:col+120].sum() / 255
 
                 # if more than half are white, the sub image is white
-                results[ctr] = 1 if totalNumWhite >= 7200 else 0
+                results[ctr] = 0 if totalNumWhite >= 7200 else 1
 
                 # increment counter
                 ctr += 1
+
         
-        print(results[0:3])
-        print(results[3:6])
-        print(results[6:9])
+        
+        print(results[0:4])
+        print(results[4:8])
+        print(results[8:12])
+        print(results[12:16])
         print("==========")
+
+        time.sleep(0.5)

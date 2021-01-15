@@ -130,6 +130,21 @@ if __name__ == "__main__":
 		# show the downsampled image
 		cv2.imshow("result", results.reshape(4,4))
 
+		
+		# transform array
+		results = results / 255
+		indices_one = results == 1
+		indices_zero = results == 0
+		results[indices_one] = 0
+		results[indices_zero] = 1
+
+		# print results
+		print(results[0:4])
+		print(results[4:8])
+		print(results[8:12])
+		print(results[12:16])
+		print("==========")
+
 		# quit if q key is pressed
 		if chr(cv2.waitKey(1)&255) == 'q':
 			break
